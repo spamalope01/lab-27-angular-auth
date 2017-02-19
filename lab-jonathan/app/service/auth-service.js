@@ -20,6 +20,8 @@ function authService($q, $log, $http, $window){
     return $q.resolve(token);
   }
 
+
+//GETTING TOKEN ON PAGE LOAD IF EXISTS
   service.getToken = function(){
     $log.debug('authService.getToken');
     if (token) {
@@ -31,6 +33,8 @@ function authService($q, $log, $http, $window){
     return $q.reject(new Error('token not found'));
   };
 
+
+//LOGOUT LOGIC
   service.logout = function(){
     $log.debug('authService.logout()');
 
@@ -39,9 +43,10 @@ function authService($q, $log, $http, $window){
     return $q.resolve();
   };
 
+
+//SIGNUP LOGIC
   service.signup = function(user) {
     $log.debug('authService.signup()');
-
     let url = `${__API_URL__}/api/signup`;
     let config = {
       headers: {
@@ -49,18 +54,23 @@ function authService($q, $log, $http, $window){
         'Accept': 'application/json',
       }
     };
-
+    $log.log('data', user);
     return $http.post(url, user, config)
     .then( res => {
       $log.log('success', res.data);
       return setToken(res.data);
     })
     .catch(err => {
+      console.error(err);
       $log.error('failure', err.message);
       return $q.reject(err);
+
     });
   };
 
+
+
+//LOGIN LOGIC
   service.login = function(user){
     $log.debug('authService.login()');
 
