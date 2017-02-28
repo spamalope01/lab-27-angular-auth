@@ -3,10 +3,10 @@
     ng-if="landingCtrl.showSignup">
     <div class="join-inner">
       <signup></signup>
-      <p>already a member?</p>
-      <a href="/#/join#login"
+      <h3>Already a Member?</h3>
+      <a class=sign-in href="/#/join#login"
         ng-click="landingCtrl.showSignup=false">
-        sign in here.
+        Sign In Here.
       </a>
     </div>
   </div>
@@ -15,10 +15,10 @@
     ng-if="!landingCtrl.showSignup">
     <div class="join-inner">
       <login></login>
-      <p>want to signup?</p>
-      <a href="/#/join#signup"
+      <h3>Want to Join?</h3>
+      <a class="log-in" href="/#/join#signup"
         ng-click="landingCtrl.showSignup=true">
-        sign up here.
+        Become a Member Here.
       </a>
     </div>
   </div>
