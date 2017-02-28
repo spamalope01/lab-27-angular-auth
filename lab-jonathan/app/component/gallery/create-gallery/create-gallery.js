@@ -5,8 +5,8 @@ module.exports = {
 };
 
 function CreateGalleryController($log, galleryService) {
-  $log.debug('CreateGalleryController');
-  this.gallery = {};  //this may need to be an array?  or is it an objct oof arrays?
+  $log.debug('hit the CreateGalleryController');
+  this.gallery = {};
 
   this.createGallery = function() {
     galleryService.createGallery(this.gallery)
@@ -14,5 +14,6 @@ function CreateGalleryController($log, galleryService) {
       this.gallery.name = null;
       this.gallery.desc = null;
     });
+    console.log('gallery', this.gallery);
   };
 };

@@ -1,0 +1,7 @@
+  <li class='gallery-up'>
+    <h3> {{ galleryUpCtrl.gallery.name }}</h3>
+    <span> {{ galleryUpCtrl.gallery.desc }}</span>
+    <span ng-click='galleryUpCtrl.showEditGallery = !galleryUpCtrl.showEditGallery'>Edit</span>
+    <span ng-click='galleryUpCtrl.deleteGallery()'> Delete </span>
+    <edit-gallery ng-if='galleryUpCtrl.showEditGallery' gallery="galleryUpCtrl.gallery"></edit-gallery>
+  </li>

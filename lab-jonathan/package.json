@@ -1,7 +1,7 @@
 {
   "name": "lab-jonathan",
   "version": "1.0.0",
-  "description": "lab 27 auth",
+  "description": "lab 30 bindings",
   "main": "webpack.config.js",
   "dependencies": {
     "angular": "^1.6.1",
