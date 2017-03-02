@@ -51,7 +51,7 @@ function picService($q, $log, $http, Upload, authService) {
       };
     })
     .then(res => {
-      galleryData.pics.pop(res.data);
+      galleryData.pics.pop(res.data);  //thi sneeds to be splice with the first parameter being the pic id and the second 1 to make sure it only removes that one item.  
       return res.data;
     })
     .catch (err => {
