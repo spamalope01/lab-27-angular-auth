@@ -1,3 +1,4 @@
+<div class="galleryDiv">
   <li class='gallery-up'>
     <h3> {{ galleryUpCtrl.gallery.name }}</h3>
     <span> {{ galleryUpCtrl.gallery.desc }}</span>
@@ -5,3 +6,8 @@
     <span ng-click='galleryUpCtrl.deleteGallery()'> Delete </span>
     <edit-gallery ng-if='galleryUpCtrl.showEditGallery' gallery="galleryUpCtrl.gallery"></edit-gallery>
   </li>
+  <thumbnail-container gallery="galleryUpCtrl.gallery">
+    <thumbnail></thumbnail>
+  </thumbnail-container>
+  <upload-pic gallery="galleryUpCtrl.gallery"></upload-pic>
+</div>

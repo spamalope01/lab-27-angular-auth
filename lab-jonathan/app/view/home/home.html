@@ -2,13 +2,18 @@
 <section class="home">
   <h2>Welcome Home.</h2>
   <create-gallery></create-gallery>
-  <ul>
-    <gallery-up ng-repeat="item in homeCtrl.galleries" gallery='item'>
-      <span>Name: {{ gallery.name }}</span>
-      <p>testing2</p>
-      <span>Description: {{ gallery.desc }}</span>
-      <span>ID#: {{ gallery.id }}</span>
-    </gallery-up>
-  </ul>
-  <!-- <button type="button" name="button" ng-click="authService.logout()">Log Out</button> -->
+  <div>
+    <ul>
+      <gallery-up ng-repeat="item in homeCtrl.galleries" gallery='item' delete-done="homeCtrl.galleryDeleteDone(galleryData)" ng-click="homeCtrl.currentGallery = item">
+        <span>Name: {{ gallery.name }}</span>
+        <p>testing2</p>
+        <span>Description: {{ gallery.desc }}</span>
+        <span>ID#: {{ gallery.id }}</span>
+      </gallery-up>
+    </ul>
+  </div>
+
+  <!-- <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container> -->
+
+
 </section>
