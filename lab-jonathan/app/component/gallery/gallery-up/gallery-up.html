@@ -1,13 +1,20 @@
 <div class="galleryDiv">
   <li class='gallery-up'>
-    <h3> {{ galleryUpCtrl.gallery.name }}</h3>
-    <span> {{ galleryUpCtrl.gallery.desc }}</span>
-    <span ng-click='galleryUpCtrl.showEditGallery = !galleryUpCtrl.showEditGallery'>Edit</span>
-    <span ng-click='galleryUpCtrl.deleteGallery()'> Delete </span>
+    <div class="" ng-if="!galleryItemCtrl.showEditGallery">
+      <h3> {{ galleryUpCtrl.gallery.name }}</h3>
+    </div>
+
+    <div class="">
+      <span> {{ galleryUpCtrl.gallery.desc }}</span>
+    </div>
+
     <edit-gallery ng-if='galleryUpCtrl.showEditGallery' gallery="galleryUpCtrl.gallery"></edit-gallery>
+
+    <button ng-click="galleryItemCtrl.showEditGallery=!galleryItemCtrl.showEditGallery" type="button" name="edit">Edit</button>
+    <button ng-click="galleryItemCtrl.deleteGallery()" type="button" name="delete">Delete</button>
   </li>
-  <thumbnail-container gallery="galleryUpCtrl.gallery">
-    <thumbnail></thumbnail>
-  </thumbnail-container>
-  <upload-pic gallery="galleryUpCtrl.gallery"></upload-pic>
+
+
+  <thumbnail-container gallery="galleryUpCtrl.gallery"></thumbnail-container>
+
 </div>
