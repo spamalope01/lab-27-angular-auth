@@ -11,15 +11,15 @@ module.exports = function(config) {
     singleRun: false,
     concurrency: Infinity,
     frameworks: ['jasmine'],
-    reporters: ['progress'],
+    reporters: ['mocha'],
     browsers: ['PhantomJS'],
     logLevel: config.LOG_INFO,
     preprocessors: {
       'test/**/*-test.js': ['webpack'],
-      'app/entry.js': ['webpack'],
+      './app/entry.js': ['webpack'],
     },
     files: [
-      'app/entry.js',
+      './app/entry.js',
       'test/**/*-test.js',
       'node_modules/angular-mocks/angular-mocks.js',
     ],
