@@ -1,35 +1,81 @@
+//
+// 'use strict';
+//
+// describe('Gallery Service', function() {
+//
+//   beforeEach(() => {
+//     angular.mock.module('cfgram');
+//     angular.mock.inject(( $rootScope, authService, galleryService, $window, $httpBackend) => {
+//       this.$window = $window;
+//       this.$rootScope = $rootScope;
+//       this.authService = authService;
+//       this.galleryService = galleryService;
+//       this.$httpBackend = $httpBackend;
+//     });
+//   });
+//
+//   describe('galleryService.createGallery()', () => {
+//     it('should create a new gallery', () => {
+//       let token = 'testToken'
+//       let galleryData = {
+//         name: 'example gallery',
+//         desc: 'example description'
+//       };
+//
+//       let headers = {
+//         'Content-Type': 'application/json',
+//         Accept: 'application/json',
+//         Authorization: 'Bearer ', token
+//       };
+//
+//       this.$httpBackend.expectPOST('http://localhost:8000/api/gallery', galleryData, headers)
+//       .respond(200, {
+//         _id: '1234',
+//         username: 'testuser',
+//         name: galleryData.name,
+//         desc: galleryData.desc,
+//         pics: []
+//       });
+//
+//       this.galleryService.createGallery(galleryData);
+//       this.$httpBackend.flush();
+//       this.$rootScope.$apply();
+//     });
+//   });
+// });
+
 // 'use strict';
 
-describe('Gallery Service', function(){
+describe('Gallery Service', function() {
 
   beforeEach(() => {
     angular.mock.module('cfgram');
-    angular.mock.inject(($rootScope, authService, galleryService, $window, $httpBackend) => {
+    angular.mock.inject(( $rootScope, authService, galleryService, $window, $httpBackend) => {
       this.$window = $window;
       this.$rootScope = $rootScope;
       this.authService = authService;
-      // authService.setToken = ('1234');
       this.galleryService = galleryService;
       this.$httpBackend = $httpBackend;
     });
   });
 
-  desribe('galleryService.createGallery', function() {
-    it('should create a new gallery', function(){
+  describe('galleryService.createGallery()', () => {
+    it('should create a new gallery', () => {
+      this.$window.localStorage.setItem('token', 'test token');
       let galleryData = {
-        name: 'test gallery',
-        desc: 'test description'
+        name: 'example gallery',
+        desc: 'example description'
       };
 
       let headers = {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: 'Bearer 1234'
+        Authorization: 'Bearer test token'
       };
 
-      this.$httpBackend.expectPost('http://localhost:3000/api/gallery', galleryData, headers)
+      this.$httpBackend.expectPOST('http://localhost:3000/api/gallery', galleryData, headers)
       .respond(200, {
-        _id: '666',
+        _id: '1234',
         username: 'testuser',
         name: galleryData.name,
         desc: galleryData.desc,

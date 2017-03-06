@@ -1,29 +1,35 @@
 // 'use strict';
-// 
-// describe('Auth Service', function(){
 //
+// // require('angular-mocks');
+//
+// describe('Auth Service', function() {
 //   beforeEach(() => {
 //     angular.mock.module('cfgram');
 //     angular.mock.inject(($rootScope, authService, $window, $httpBackend) => {
 //       this.$window = $window;
 //       this.$rootScope = $rootScope;
 //       this.authService = authService;
-//       // authService.setToken = ('1234');
 //       this.$httpBackend = $httpBackend;
 //     });
 //   });
 //
-//   describe('authService.getToken()', function() {
-//     it('should return a token', function() {
-//       this.authService.token = null;
-//       this.$window.localStorage.setItem('token', '12345');
+//   describe('authService.getToken()', () => {
+//     it('should return a token', () => {
+//       this.$window.localStorage.setItem('token', 'test token');
 //
 //       this.authService.getToken()
 //       .then(token => {
-//         expect(token).toEqual('12345');
-//       })
+//         expect(token).toEqual('test token');
+//       });
+//
+//       this.$window.localStorage.removeItem('token');
+//       this.$rootScope.$apply();
+//     });
+//
+//     it('should return "Error token not found"', () => {
+//       this.authService.getToken()
 //       .catch(err => {
-//         expect(err).toEqual(null);
+//         expect(err).toEqual(new Error('token not found'));
 //       });
 //
 //       this.$rootScope.$apply();

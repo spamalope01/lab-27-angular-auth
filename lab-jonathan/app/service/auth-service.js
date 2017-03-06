@@ -29,7 +29,9 @@ function authService($q, $log, $http, $window){
     };
 
     token = $window.localStorage.getItem('token');
+    console.log('in get token, about to hit the if');
     if (token) return $q.resolve(token);
+    console.log('token is', token);
     return $q.reject(new Error('token not found'));
   };
 
