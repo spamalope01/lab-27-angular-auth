@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Edit Gallery Component', function(){
+describe('Gallery Up Component', function(){
   beforeEach(() => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $componentController, $window, $httpBackend, authService) => {
@@ -12,8 +12,8 @@ describe('Edit Gallery Component', function(){
     })
   });
 
-  describe('editGalleryCtrl.updateGallery()', () => {
-    it('should call updateGallery', () => {
+  describe('galleryUpCtrl.deleteGallery()', () => {
+    it('should call deleteGallery', () => {
       this.$window.localStorage.setItem('token', 'test token');
       let mockBindings = {
         gallery: {
@@ -22,13 +22,13 @@ describe('Edit Gallery Component', function(){
           desc: 'test description',
           pics: [],
         },
-        updateGallery: function(data){
+        deleteGallery: function(data){
           expect(data.galleryData._id).toEqual('12345');
         }
       };
 
-      let editGalleryCtrl = this.$componentController('editGallery', null, mockBindings);
-      editGalleryCtrl.updateGallery({galleryData: editGalleryCtrl.gallery});
+      let galleryUpCtrl = this.$componentController('galleryUp', null, mockBindings);
+      galleryUpCtrl.deleteGallery({galleryData: galleryUpCtrl.gallery});
 
       // this.$httpBackend.flush();
       this.$rootScope.$apply();
