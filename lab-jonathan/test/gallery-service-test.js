@@ -1,10 +1,5 @@
 // 'use strict';
 
-require('app/entry.js');
-require('angular-mocks');
-
-let angular = require('angular');
-
 describe('Gallery Service', function(){
 
   beforeEach(() => {
@@ -13,7 +8,7 @@ describe('Gallery Service', function(){
       this.$window = $window;
       this.$rootScope = $rootScope;
       this.authService = authService;
-      authService.setToken = ('1234');
+      // authService.setToken = ('1234');
       this.galleryService = galleryService;
       this.$httpBackend = $httpBackend;
     });
@@ -45,5 +40,5 @@ describe('Gallery Service', function(){
       this.$httpBackend.flush();
       this.$rootScope.$apply();
     });
-});
+  });
 });

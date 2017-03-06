@@ -12,14 +12,14 @@ module.exports = function(config) {
     concurrency: Infinity,
     frameworks: ['jasmine'],
     reporters: ['mocha'],
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     logLevel: config.LOG_INFO,
     preprocessors: {
+      'app/entry.js': ['webpack'],
       'test/**/*-test.js': ['webpack'],
-      './app/entry.js': ['webpack'],
     },
     files: [
-      './app/entry.js',
+      'app/entry.js',
       'test/**/*-test.js',
       'node_modules/angular-mocks/angular-mocks.js',
     ],
