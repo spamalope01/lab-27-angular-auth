@@ -5,7 +5,8 @@ require('./_home.scss');
 module.exports = ['$log', '$rootScope', 'galleryService', HomeController];
 
 function HomeController($log, $rootScope, galleryService) {
-  $log.debug('IN THE HomeController');
+  $log.debug('In the HomeController');
+  this.today = new Date();
   this.galleries = [];
   console.log('this.galleries', this.galleries);
 
